@@ -17,6 +17,7 @@ export const fetchComics = async (): Promise<Comic[]> => {
 };
 
 export const fetchComicsByName = async (title: string): Promise<Comic[]> => {
+  if (title === "") return [];
   const response = await axios.get(
     `https://gateway.marvel.com/v1/public/comics?format=comic&formatType=comic&title=${title}&apikey=${publicKey}&hash=${hash}`
   );

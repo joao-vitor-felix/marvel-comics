@@ -5,7 +5,7 @@ import {
   Search,
   Heart
 } from "./Navbar.styles";
-import { Outlet, useActionData } from "react-router-dom";
+import { NavLink, Outlet } from "react-router-dom";
 import Marvel from "../../assets/marvel-logo.svg";
 import { Logo } from "./Navbar.styles";
 import { faHeart, faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
@@ -33,17 +33,14 @@ const Navbar = () => {
   return (
     <>
       <Nav navbarColor={navbarColor}>
-        <Logo src={`${Marvel}`} />
+        <NavLink to="/">
+          <Logo src={`${Marvel}`} />
+        </NavLink>
         <InputContainer>
           <label htmlFor="search">
             <Search icon={faMagnifyingGlass} />
           </label>
-          <Input
-            id="search"
-            type="text"
-            placeholder="Search a comic"
-            value=""
-          />
+          <Input id="search" />
         </InputContainer>
         <FavLoginContainer>
           <Heart icon={faHeart} />
