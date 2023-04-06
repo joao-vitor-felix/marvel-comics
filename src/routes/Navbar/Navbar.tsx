@@ -43,7 +43,9 @@ const Navbar = () => {
           <Searchbox id="search" />
         </InputContainer>
         <FavLoginContainer>
-          <Heart icon={faHeart} />
+          <NavLink to="favorites">
+            <Heart icon={faHeart} />
+          </NavLink>
           <Button>Login</Button>
         </FavLoginContainer>
       </Nav>
