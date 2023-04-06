@@ -11,7 +11,13 @@ const ComicList = () => {
       {isError && <Error>Ooops! something went wrong!</Error>}
       <Container>
         {data?.map(comic => (
-          <Comic title={comic.title} images={comic.images} key={comic.id} />
+          <Comic
+            title={comic.title}
+            images={comic.images}
+            key={comic.id}
+            id={comic.id}
+            favorite={comic}
+          />
         ))}
       </Container>
     </>

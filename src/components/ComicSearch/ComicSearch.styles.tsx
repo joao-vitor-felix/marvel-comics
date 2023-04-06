@@ -1,6 +1,8 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
-export const SearchContainer = styled.div`
+export const SearchContainer = styled(Link)`
+  text-decoration: none;
   display: flex;
   width: 350px;
   height: 80px;

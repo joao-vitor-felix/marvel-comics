@@ -10,14 +10,14 @@ import Marvel from "../../assets/marvel-logo.svg";
 import { Logo } from "./Navbar.styles";
 import { faHeart, faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import Button from "../../components/Button/Button";
-import Input from "../../components/Input/Input";
+import Searchbox from "../../components/Searchbox/Searchbox";
 import { useEffect, useState } from "react";
 
 const Navbar = () => {
   const [navbarColor, setNavbarColor] = useState(false);
 
   const changeColor = () => {
-    if (scrollY > 100) {
+    if (scrollY > 10) {
       setNavbarColor(true);
     } else {
       setNavbarColor(false);
@@ -40,7 +40,7 @@ const Navbar = () => {
           <label htmlFor="search">
             <Search icon={faMagnifyingGlass} />
           </label>
-          <Input id="search" />
+          <Searchbox id="search" />
         </InputContainer>
         <FavLoginContainer>
           <Heart icon={faHeart} />

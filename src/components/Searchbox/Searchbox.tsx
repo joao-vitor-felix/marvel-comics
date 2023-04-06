@@ -1,15 +1,18 @@
 import { FC, useEffect, useState } from "react";
-import { Container, Input as DefaultInput } from "./Input.styles";
-import SearchList from "../SearchList/SearchList";
+import { Container, Input } from "./Searchbox.styles";
 import useComicsByName from "../../hooks/useComicsByName";
+import ComicSearchList from "../ComicSearchList/ComicSearchList";
+import { useLocation } from "react-router-dom";
 
-type InputProps = {
+type SearchboxProps = {
   id: string;
 };
 
-const Input: FC<InputProps> = ({ id }) => {
+const Searchbox: FC<SearchboxProps> = ({ id }) => {
   const [search, setSearch] = useState("");
   const [debounceSearch, setDebounceSearch] = useState(search);
+
+  const location = useLocation();
 
   useEffect(() => {
     const timerId = setTimeout(() => {
@@ -21,20 +24,24 @@ const Input: FC<InputProps> = ({ id }) => {
     };
   }, [search]);
 
+  useEffect(() => {
+    setSearch("");
+  }, [location]);
+
   const { data } = useComicsByName(debounceSearch);
 
   return (
     <Container>
-      <DefaultInput
-        type="text"
+      <Input
+        type="search"
         placeholder="Search a comic"
         value={search}
         onChange={e => setSearch(e.target.value)}
         id={id}
       />
-      {data && <SearchList comics={data} />}
+      {data && <ComicSearchList comics={data} />}
     </Container>
   );
 };
 
-export default Input;
+export default Searchbox;

@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { SearchContainer, Image, Title } from "./Search.styles";
+import { SearchContainer, Image, Title } from "./ComicSearch.styles";
 
 type SearchProps = {
   images: {
@@ -7,11 +7,12 @@ type SearchProps = {
     extension: string;
   }[];
   title: string;
+  id: number;
 };
 
-const Search: FC<SearchProps> = ({ images, title }) => {
+const ComicSearch: FC<SearchProps> = ({ images, title, id }) => {
   return (
-    <SearchContainer>
+    <SearchContainer to={`/details/${id}`}>
       <Image
         src={`${images[0]?.path}.${images[0]?.extension}`}
         alt={`${title}`}
@@ -21,4 +22,4 @@ const Search: FC<SearchProps> = ({ images, title }) => {
   );
 };
 
-export default Search;
+export default ComicSearch;
