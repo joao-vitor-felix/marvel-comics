@@ -28,11 +28,11 @@ const ComicSearchList: FC<SearchListProps> = ({ comics, search }) => {
           </>
         ))}
       {comics.length > 0 && (
-        <SearchButton to={`search/${search}`}>See more..</SearchButton>
+        <SearchButton to={`search/${search}`}>See more...</SearchButton>
       )}
 
       {comics.length === 0 && search.length > 0 && (
-        <Message>No results found</Message>
+        <Message>No comics found.</Message>
       )}
     </SearchListContainer>
   );

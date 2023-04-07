@@ -17,7 +17,7 @@ const Searchbox: FC<SearchboxProps> = ({ id }) => {
   useEffect(() => {
     const timerId = setTimeout(() => {
       setDebounceSearch(search);
-    }, 350);
+    }, 400);
 
     return () => {
       clearTimeout(timerId);

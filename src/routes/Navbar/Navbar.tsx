@@ -3,13 +3,19 @@ import {
   InputContainer,
   FavLoginContainer,
   Search,
-  Heart
+  Heart,
+  Menu,
+  LoginButton,
+  LogoContainer
 } from "./Navbar.styles";
 import { NavLink, Outlet } from "react-router-dom";
 import Marvel from "../../assets/marvel-logo.svg";
 import { Logo } from "./Navbar.styles";
-import { faHeart, faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
-import Button from "../../components/Button/Button";
+import {
+  faBars,
+  faHeart,
+  faMagnifyingGlass
+} from "@fortawesome/free-solid-svg-icons";
 import Searchbox from "../../components/Searchbox/Searchbox";
 import { useEffect, useState } from "react";
 
@@ -33,9 +39,10 @@ const Navbar = () => {
   return (
     <>
       <Nav navbarColor={navbarColor}>
-        <NavLink to="/">
+        <Menu icon={faBars} />
+        <LogoContainer to="/">
           <Logo src={`${Marvel}`} />
-        </NavLink>
+        </LogoContainer>
         <InputContainer>
           <label htmlFor="search">
             <Search icon={faMagnifyingGlass} />
@@ -46,7 +53,7 @@ const Navbar = () => {
           <NavLink to="favorites">
             <Heart icon={faHeart} />
           </NavLink>
-          <Button>Login</Button>
+          <LoginButton>Login</LoginButton>
         </FavLoginContainer>
       </Nav>
       <Outlet />

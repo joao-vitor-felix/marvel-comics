@@ -21,8 +21,8 @@ const Favorites = () => {
             favorite={comic}
           />
         )) || <SkeletonCard comics={favorites.length} />}
-        <ButtonToTop />
       </Container>
+      <ButtonToTop />
     </>
   );
 };

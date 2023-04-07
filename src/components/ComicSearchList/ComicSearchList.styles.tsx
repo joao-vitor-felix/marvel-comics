@@ -35,5 +35,4 @@ export const Message = styled.p`
   background-color: #1d1b1a;
   border: 1px solid #4d4b4a;
   border-radius: 2px;
-  cursor: pointer;
 `;
