@@ -39,7 +39,7 @@ const Searchbox: FC<SearchboxProps> = ({ id }) => {
         onChange={e => setSearch(e.target.value)}
         id={id}
       />
-      {data && <ComicSearchList comics={data} />}
+      {data && <ComicSearchList comics={data} search={search} />}
     </Container>
   );
 };

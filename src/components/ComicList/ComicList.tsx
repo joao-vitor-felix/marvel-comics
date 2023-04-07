@@ -1,13 +1,13 @@
 import Comic from "../Comic/Comic";
 import { Container, Loading, Error } from "./ComicList.styles";
 import useComics from "../../hooks/useComics";
+import SkeletonCard from "../SkeletonCard/SkeletonCard";
 
 const ComicList = () => {
-  const { data, isFetching, isError } = useComics();
+  const { data, isError } = useComics();
 
   return (
     <>
-      {isFetching && <Loading>Loading comics...</Loading>}
       {isError && <Error>Ooops! something went wrong!</Error>}
       <Container>
         {data?.map(comic => (
@@ -18,7 +18,7 @@ const ComicList = () => {
             id={comic.id}
             favorite={comic}
           />
-        ))}
+        )) || <SkeletonCard comics={20} />}
       </Container>
     </>
   );

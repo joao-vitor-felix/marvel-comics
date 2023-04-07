@@ -1,4 +1,5 @@
 import Comic from "../../components/Comic/Comic";
+import SkeletonCard from "../../components/SkeletonCard/SkeletonCard";
 import useDocumentTitle from "../../hooks/useDocumentTitle";
 import useFavoriteContext from "../../hooks/useFavoriteContext";
 import { Container, Title } from "./Favorites.styles";
@@ -18,7 +19,7 @@ const Favorites = () => {
             id={comic.id}
             favorite={comic}
           />
-        ))}
+        )) || <SkeletonCard comics={favorites.length} />}
       </Container>
     </>
   );
