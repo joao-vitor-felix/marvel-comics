@@ -8,6 +8,7 @@ import Favorites from "./routes/Favorites/Favorites";
 import FavoriteContextProvider from "./contexts/FavoritesContext/FavoritesContext";
 import { SkeletonTheme } from "react-loading-skeleton";
 import Search from "./routes/Search/Search";
+import ScrollToTop from "./components/ScrollToTop/ScrollToTop";
 
 const App = () => {
   return (
@@ -15,6 +16,7 @@ const App = () => {
       <FavoriteContextProvider>
         <Theme>
           <GlobalStyle />
+          <ScrollToTop />
           <Routes>
             <Route path="/" element={<Navbar />}>
               <Route index element={<Home />} />

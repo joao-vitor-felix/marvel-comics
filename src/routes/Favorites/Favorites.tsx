@@ -1,3 +1,4 @@
+import ButtonToTop from "../../components/ButtonToTop/ButtonTopTop";
 import Comic from "../../components/Comic/Comic";
 import SkeletonCard from "../../components/SkeletonCard/SkeletonCard";
 import useDocumentTitle from "../../hooks/useDocumentTitle";
@@ -20,6 +21,7 @@ const Favorites = () => {
             favorite={comic}
           />
         )) || <SkeletonCard comics={favorites.length} />}
+        <ButtonToTop />
       </Container>
     </>
   );

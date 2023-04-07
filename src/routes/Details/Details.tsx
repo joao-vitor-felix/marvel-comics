@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import ComicDetails from "../../components/ComicDetails/ComicDetails";
 import useComicById from "../../hooks/useComicById";
 import useDocumentTitle from "../../hooks/useDocumentTitle";
+import ButtonToTop from "../../components/ButtonToTop/ButtonTopTop";
 
 const Details = () => {
   const { id } = useParams();
@@ -26,6 +27,7 @@ const Details = () => {
             favorite={comic}
           />
         ))}
+      <ButtonToTop />
     </>
   );
 };

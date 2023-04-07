@@ -3,6 +3,7 @@ import { Container } from "./Search.styles";
 import useComicsByName from "../../hooks/useComicsByName";
 import Comic from "../../components/Comic/Comic";
 import SkeletonCard from "../../components/SkeletonCard/SkeletonCard";
+import ButtonToTop from "../../components/ButtonToTop/ButtonTopTop";
 
 const Search = () => {
   const { title } = useParams();
@@ -20,6 +21,7 @@ const Search = () => {
             favorite={comic}
           />
         ))) || <SkeletonCard comics={20} />}
+      <ButtonToTop />
     </Container>
   );
 };
