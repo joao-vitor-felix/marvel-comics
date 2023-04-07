@@ -1,5 +1,5 @@
 import Comic from "../Comic/Comic";
-import { Container, Loading, Error } from "./ComicList.styles";
+import { Container, Error } from "./ComicList.styles";
 import useComics from "../../hooks/useComics";
 import SkeletonCard from "../SkeletonCard/SkeletonCard";
 

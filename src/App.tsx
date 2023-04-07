@@ -7,6 +7,7 @@ import Details from "./routes/Details/Details";
 import Favorites from "./routes/Favorites/Favorites";
 import FavoriteContextProvider from "./contexts/FavoritesContext/FavoritesContext";
 import { SkeletonTheme } from "react-loading-skeleton";
+import Search from "./routes/Search/Search";
 
 const App = () => {
   return (
@@ -18,6 +19,7 @@ const App = () => {
             <Route path="/" element={<Navbar />}>
               <Route index element={<Home />} />
               <Route path="details/:id" element={<Details />} />
+              <Route path="search/:title" element={<Search />} />
               <Route path="favorites" element={<Favorites />} />
             </Route>
           </Routes>

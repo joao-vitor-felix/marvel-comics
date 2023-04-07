@@ -17,7 +17,7 @@ const Searchbox: FC<SearchboxProps> = ({ id }) => {
   useEffect(() => {
     const timerId = setTimeout(() => {
       setDebounceSearch(search);
-    }, 300);
+    }, 350);
 
     return () => {
       clearTimeout(timerId);
@@ -39,7 +39,7 @@ const Searchbox: FC<SearchboxProps> = ({ id }) => {
         onChange={e => setSearch(e.target.value)}
         id={id}
       />
-      {data && <ComicSearchList comics={data} search={search} />}
+      {data && <ComicSearchList comics={data} search={debounceSearch} />}
     </Container>
   );
 };

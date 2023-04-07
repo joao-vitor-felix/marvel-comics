@@ -6,7 +6,6 @@ const useComicsByName = (title: string) => {
   const { data, isFetching, isError } = useQuery<Comic[], Error>({
     queryKey: ["comic", title],
     queryFn: () => fetchComicsByName(title),
-    keepPreviousData: true,
     refetchOnWindowFocus: false
   });
   return { data, isFetching, isError };

@@ -36,7 +36,7 @@ const ComicDetails: FC<ComicDetailsProps> = ({
 
   return (
     <Container>
-      <Arrow icon={faArrowLeft} onClick={() => navigate("/")}></Arrow>
+      <Arrow icon={faArrowLeft} onClick={() => navigate(-1)}></Arrow>
       <DetailContainer>
         <Image
           src={`${images[0]?.path}.${images[0]?.extension}`}

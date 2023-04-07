@@ -27,7 +27,7 @@ export const Nav = styled.nav<NavProps>`
   top: 0;
   left: 0;
   background-color: ${({ navbarColor }) => (navbarColor ? "#202020" : "none")};
-  transition: all 0.3s ease;
+  transition: all 0.1s ease;
 `;
 
 export const InputContainer = styled.div`

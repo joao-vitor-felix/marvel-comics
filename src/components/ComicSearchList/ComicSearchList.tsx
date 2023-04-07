@@ -1,9 +1,11 @@
 import { FC } from "react";
 import { Comic } from "../../types/Comic";
-import { SearchListContainer } from "./ComicSearchList.styles";
+import {
+  Message,
+  SearchButton,
+  SearchListContainer
+} from "./ComicSearchList.styles";
 import ComicSearch from "../ComicSearch/ComicSearch";
-import Skeleton from "react-loading-skeleton";
-import "react-loading-skeleton/dist/skeleton.css";
 
 type SearchListProps = {
   comics: Comic[];
@@ -11,21 +13,27 @@ type SearchListProps = {
 };
 
 const ComicSearchList: FC<SearchListProps> = ({ comics, search }) => {
-  const shouldShowSkeleton = comics.length === 0 && search !== "";
-
   return (
     <SearchListContainer>
       {comics
         ?.filter((comics, idx) => idx < 5)
         .map(comic => (
-          <ComicSearch
-            images={comic.images}
-            title={comic.title}
-            key={comic.id}
-            id={comic.id}
-          />
+          <>
+            <ComicSearch
+              images={comic.images}
+              title={comic.title}
+              key={comic.id}
+              id={comic.id}
+            />
+          </>
         ))}
-      {shouldShowSkeleton && <Skeleton height={81} width={350} count={5} />}
+      {comics.length > 0 && (
+        <SearchButton to={`search/${search}`}>See more..</SearchButton>
+      )}
+
+      {comics.length === 0 && search.length > 0 && (
+        <Message>No results found</Message>
+      )}
     </SearchListContainer>
   );
 };

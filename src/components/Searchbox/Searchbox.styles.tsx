@@ -10,7 +10,6 @@ export const Input = styled.input`
   border: 1px solid #ec1d24;
   border-radius: 20px;
   padding: 0 12px;
-  position: relative;
   color: white;
 
   &:focus {
@@ -18,4 +17,6 @@ export const Input = styled.input`
   }
 `;
 
-export const Container = styled.div``;
+export const Container = styled.div`
+  position: relative;
+`;
