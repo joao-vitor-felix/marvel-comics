@@ -6,22 +6,29 @@ import {
   Heart,
   Menu,
   LoginButton,
-  LogoContainer
+  LogoContainer,
+  Sidebar,
+  Title,
+  CloseButton
 } from "./Navbar.styles";
-import { NavLink, Outlet } from "react-router-dom";
+import { NavLink, Outlet, useLocation, useNavigate } from "react-router-dom";
 import Marvel from "../../assets/marvel-logo.svg";
 import { Logo } from "./Navbar.styles";
 import {
   faBars,
   faHeart,
-  faMagnifyingGlass
+  faMagnifyingGlass,
+  faTimes
 } from "@fortawesome/free-solid-svg-icons";
 import Searchbox from "../../components/Searchbox/Searchbox";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const Navbar = () => {
   const [navbarColor, setNavbarColor] = useState(false);
-
+  const [showSideBar, setShowSideBar] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
+  const location = useLocation();
+  const navigate = useNavigate();
   const changeColor = () => {
     if (scrollY > 10) {
       setNavbarColor(true);
@@ -36,10 +43,41 @@ const Navbar = () => {
     return () => removeEventListener("scroll", changeColor);
   }, []);
 
+  useEffect(() => {
+    const checkIfClickedOutside = (e: MouseEvent) => {
+      if (
+        showSideBar &&
+        ref.current &&
+        !ref.current.contains(e.target as Node)
+      ) {
+        setShowSideBar(!showSideBar);
+      }
+    };
+
+    addEventListener("mousedown", checkIfClickedOutside);
+
+    return () => removeEventListener("mousedown", checkIfClickedOutside);
+  }, [showSideBar]);
+
+  useEffect(() => {
+    setShowSideBar(false);
+  }, [location]);
+
   return (
     <>
-      <Nav navbarColor={navbarColor}>
-        <Menu icon={faBars} />
+      <Nav navbarColor={navbarColor} ref={ref}>
+        <Sidebar showSideBar={showSideBar}>
+          <Title>Menu</Title>
+          <CloseButton
+            icon={faTimes}
+            onClick={() => setShowSideBar(!showSideBar)}
+          />
+          <LoginButton onClick={() => navigate("favorites")}>
+            Favorites
+          </LoginButton>
+          <LoginButton onClick={() => navigate("login")}>Login</LoginButton>
+        </Sidebar>
+        <Menu icon={faBars} onClick={() => setShowSideBar(!showSideBar)} />
         <LogoContainer to="/">
           <Logo src={`${Marvel}`} />
         </LogoContainer>

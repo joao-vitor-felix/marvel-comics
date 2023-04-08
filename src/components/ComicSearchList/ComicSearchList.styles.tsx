@@ -29,7 +29,7 @@ export const SearchButton = styled(Link)`
 
   @media screen and (max-width: 500px) {
     max-width: 150px;
-    padding: 20px 6px;
+    padding: 25px 6px;
   }
 `;
 
