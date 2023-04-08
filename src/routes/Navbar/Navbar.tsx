@@ -91,7 +91,7 @@ const Navbar = () => {
           <NavLink to="favorites">
             <Heart icon={faHeart} />
           </NavLink>
-          <LoginButton>Login</LoginButton>
+          <LoginButton onClick={() => navigate("login")}>Login</LoginButton>
         </FavLoginContainer>
       </Nav>
       <Outlet />

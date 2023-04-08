@@ -9,6 +9,7 @@ import FavoriteContextProvider from "./contexts/FavoritesContext/FavoritesContex
 import { SkeletonTheme } from "react-loading-skeleton";
 import Search from "./routes/Search/Search";
 import ScrollToTop from "./components/ScrollToTop/ScrollToTop";
+import Login from "./routes/Login/Login";
 
 const App = () => {
   return (
@@ -23,6 +24,7 @@ const App = () => {
               <Route path="details/:id" element={<Details />} />
               <Route path="search/:title" element={<Search />} />
               <Route path="favorites" element={<Favorites />} />
+              <Route path="login" element={<Login />} />
             </Route>
           </Routes>
         </Theme>
