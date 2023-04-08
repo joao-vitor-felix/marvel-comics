@@ -68,22 +68,22 @@ export const Logo = styled.img`
 
 export const LogoContainer = styled(NavLink)`
   text-decoration: none;
-  padding: 0 30px 0 40px;
+  margin: 0 30px 0 40px;
 
   @media screen and (max-width: 700px) {
-    padding: 0 3px 0 12px;
+    margin: 0 3px 0 12px;
   }
 `;
 
 export const Menu = styled(FontAwesomeIcon)`
   color: white;
-  height: 25px;
+  height: 30px;
   cursor: pointer;
   display: none;
 
   @media screen and (max-width: 700px) {
     display: flex;
-    padding: 0 5px 0 15px;
+    margin: 0 5px 0 15px;
   }
 `;
 

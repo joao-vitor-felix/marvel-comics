@@ -35,4 +35,13 @@ export const Message = styled.p`
   background-color: #1d1b1a;
   border: 1px solid #4d4b4a;
   border-radius: 2px;
+
+  @media screen and (max-width: 800px) {
+    max-width: 200px;
+  }
+
+  @media screen and (max-width: 500px) {
+    max-width: 150px;
+    padding: 20px 6px;
+  }
 `;

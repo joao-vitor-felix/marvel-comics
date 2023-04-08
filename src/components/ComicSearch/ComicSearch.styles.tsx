@@ -10,6 +10,15 @@ export const SearchContainer = styled(Link)`
   border: 1px solid #4d4b4a;
   border-radius: 2px;
   cursor: pointer;
+
+  @media screen and (max-width: 800px) {
+    max-width: 200px;
+    height: 90px;
+  }
+
+  @media screen and (max-width: 500px) {
+    max-width: 150px;
+  }
 `;
 
 export const Image = styled.img`
@@ -21,4 +30,8 @@ export const Title = styled.h2`
   color: white;
   font-size: 16px;
   padding: 26px 16px;
+
+  @media screen and (min-width: 375px) and (max-width: 600px) {
+    font-size: 12px;
+  }
 `;

@@ -37,12 +37,12 @@ const ComicDetails: FC<ComicDetailsProps> = ({
   return (
     <Container>
       <Arrow icon={faArrowLeft} onClick={() => navigate(-1)}></Arrow>
-      <DetailContainer>
+      <Details>
         <Image
           src={`${images[0]?.path}.${images[0]?.extension}`}
           alt={`${{ title }}`}
         />
-        <Details>
+        <DetailContainer>
           <Title>{title}</Title>
           <Description>
             Description: {description ? description : " No description found."}
@@ -54,8 +54,8 @@ const ComicDetails: FC<ComicDetailsProps> = ({
           <Button onClick={() => toggleFavorite(favorite)}>
             {isFavorite ? "Unfavorite" : "Favorite"}
           </Button>
-        </Details>
-      </DetailContainer>
+        </DetailContainer>
+      </Details>
     </Container>
   );
 };

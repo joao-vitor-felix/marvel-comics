@@ -7,7 +7,7 @@ type ButtonProps = {
 export const Button = styled(FontAwesomeIcon)<ButtonProps>`
   position: fixed;
   bottom: 10%;
-  right: 0.5%;
+  right: 2%;
   height: 50px;
   color: red;
   pointer-events: none;
