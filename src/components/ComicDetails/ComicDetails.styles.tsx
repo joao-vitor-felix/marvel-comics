@@ -22,8 +22,7 @@ export const Arrow = styled(FontAwesomeIcon)`
 export const Details = styled.div`
   display: flex;
   align-items: center;
-  margin: 100px 50px;
-  /* gap: 24px; */
+  margin: 100px 8px;
 
   @media screen and (max-width: 600px) {
     flex-direction: column;
@@ -37,18 +36,22 @@ export const Image = styled.img`
 export const DetailContainer = styled.div`
   color: white;
   align-self: flex-start;
-  padding: 20px;
+  margin: 16px;
   display: flex;
   flex-direction: column;
 
-  @media screen and (max-width: 600px) {
+  @media screen and (max-width: 500px) {
     flex-direction: column;
+    width: 260px;
+    margin: 16px 8px;
+    align-self: center;
   }
 `;
 
 export const Title = styled.h2`
   font-size: 24px;
   margin-bottom: 16px;
+  justify-self: flex-start;
 `;
 
 export const Description = styled.span`

@@ -55,12 +55,12 @@ const ComicDetails: FC<ComicDetailsProps> = ({
           {(
             <Description>
               Description:
-              {description ? description : " No description found."}
+              {description ? ` ${description}` : " No description found."}
             </Description>
           ) || <Skeleton count={3} />}
           <OtherDescriptionContainer>
             {pageCount ? (
-              <OtherDescription>pageCount: {pageCount}</OtherDescription>
+              <OtherDescription>Page count: {pageCount}</OtherDescription>
             ) : (
               <Skeleton count={1} />
             )}

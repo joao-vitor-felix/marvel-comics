@@ -11,7 +11,7 @@ export const Container = styled.div`
 `;
 
 export const Title = styled.h2`
-  font-size: 20px;
+  font-size: 19px;
 `;
 
 export const Label = styled.label`
