@@ -26,11 +26,13 @@ const ButtonToTop = () => {
   }, []);
 
   return (
-    <Button
-      icon={faCircleChevronUp}
-      showButton={showButton}
-      onClick={goToTop}
-    />
+    <>
+      <Button
+        icon={faCircleChevronUp}
+        onClick={goToTop}
+        showButton={showButton}
+      />
+    </>
   );
 };
 

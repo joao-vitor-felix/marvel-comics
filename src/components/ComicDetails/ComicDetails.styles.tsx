@@ -4,6 +4,7 @@ import styled from "styled-components";
 export const Container = styled.div`
   height: 100vh;
   margin-top: 60px;
+  padding: 0 40px;
 `;
 
 export const Arrow = styled(FontAwesomeIcon)`

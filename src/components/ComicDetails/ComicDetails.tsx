@@ -15,6 +15,8 @@ import { Comic } from "../../types/Comic";
 import { useNavigate } from "react-router-dom";
 import Button from "../Button/Button";
 import useFavoriteContext from "../../hooks/useFavoriteContext";
+import Skeleton from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
 
 type ComicDetailsProps = Comic & {
   favorite: Comic;
@@ -38,18 +40,35 @@ const ComicDetails: FC<ComicDetailsProps> = ({
     <Container>
       <Arrow icon={faArrowLeft} onClick={() => navigate(-1)}></Arrow>
       <Details>
-        <Image
-          src={`${images[0]?.path}.${images[0]?.extension}`}
-          alt={`${{ title }}`}
-        />
+        {images ? (
+          <Image
+            src={`${images[0]?.path}.${images[0]?.extension}`}
+            alt={`${{ title }}`}
+          />
+        ) : (
+          <Skeleton height={400} width={260.23} />
+        )}
+
         <DetailContainer>
-          <Title>{title}</Title>
-          <Description>
-            Description: {description ? description : " No description found."}
-          </Description>
+          {title ? <Title>{title}</Title> : <Skeleton count={1} />}
+
+          {(
+            <Description>
+              Description:
+              {description ? description : " No description found."}
+            </Description>
+          ) || <Skeleton count={3} />}
           <OtherDescriptionContainer>
-            <OtherDescription>Number of pages: {pageCount}</OtherDescription>
-            <OtherDescription>Format: {format}</OtherDescription>
+            {pageCount ? (
+              <OtherDescription>pageCount: {pageCount}</OtherDescription>
+            ) : (
+              <Skeleton count={1} />
+            )}
+            {format ? (
+              <OtherDescription>Format: {format}</OtherDescription>
+            ) : (
+              <Skeleton count={1} />
+            )}
           </OtherDescriptionContainer>
           <Button onClick={() => toggleFavorite(favorite)}>
             {isFavorite ? "Unfavorite" : "Favorite"}
