@@ -24,6 +24,8 @@ const Details = () => {
             images={comic.images}
             key={comic.id}
             id={comic.id}
+            creators={comic.creators}
+            characters={comic.characters}
             favorite={comic}
           />
         ))}

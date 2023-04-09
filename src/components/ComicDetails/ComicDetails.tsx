@@ -29,6 +29,8 @@ const ComicDetails: FC<ComicDetailsProps> = ({
   format,
   images,
   id,
+  creators,
+  characters,
   favorite
 }) => {
   const { favorites, toggleFavorite } = useFavoriteContext();
@@ -60,12 +62,42 @@ const ComicDetails: FC<ComicDetailsProps> = ({
           ) || <Skeleton count={3} />}
           <OtherDescriptionContainer>
             {pageCount ? (
-              <OtherDescription>Page count: {pageCount}</OtherDescription>
+              <OtherDescription>Page count: {pageCount}.</OtherDescription>
             ) : (
               <Skeleton count={1} />
             )}
             {format ? (
-              <OtherDescription>Format: {format}</OtherDescription>
+              <OtherDescription>Format: {format}.</OtherDescription>
+            ) : (
+              <Skeleton count={1} />
+            )}
+            {creators ? (
+              <OtherDescription>
+                Creators:
+                {creators.items.length > 0
+                  ? creators.items.map((creator, index, array) => (
+                      <OtherDescription key={index}>
+                        {` ${creator.name}`}
+                        {index === array.length - 1 ? "." : ", "}
+                      </OtherDescription>
+                    ))
+                  : " No creators found."}
+              </OtherDescription>
+            ) : (
+              <Skeleton count={1} />
+            )}
+            {characters ? (
+              <OtherDescription>
+                Characters:
+                {characters.items.length > 0
+                  ? characters.items.map((character, index, array) => (
+                      <OtherDescription key={index}>
+                        {` ${character.name}`}
+                        {index === array.length - 1 ? "." : ", "}
+                      </OtherDescription>
+                    ))
+                  : " No characters found."}
+              </OtherDescription>
             ) : (
               <Skeleton count={1} />
             )}

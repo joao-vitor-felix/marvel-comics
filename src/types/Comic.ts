@@ -9,14 +9,14 @@ export type Comic = {
     path: string;
     extension: string;
   }[];
-  creators: {
+  creators?: {
     items: {
       name: string;
       resourceURI: string;
       role: string;
     }[];
   };
-  characters: {
+  characters?: {
     items: {
       name: string;
       resourceURI: string;
