@@ -17,6 +17,8 @@ import Button from "../Button/Button";
 import useFavoriteContext from "../../hooks/useFavoriteContext";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
+import CharactersList from "../CharactersList/CharactersList";
+import CreatorsList from "../CreatorsList/CreatorsList";
 
 type ComicDetailsProps = Comic & {
   favorite: Comic;
@@ -72,32 +74,12 @@ const ComicDetails: FC<ComicDetailsProps> = ({
               <Skeleton count={1} />
             )}
             {creators ? (
-              <OtherDescription>
-                Creators:
-                {creators.items.length > 0
-                  ? creators.items.map((creator, index, array) => (
-                      <OtherDescription key={index}>
-                        {` ${creator.name}`}
-                        {index === array.length - 1 ? "." : ", "}
-                      </OtherDescription>
-                    ))
-                  : " No creators found."}
-              </OtherDescription>
+              <CreatorsList creators={creators} />
             ) : (
               <Skeleton count={1} />
             )}
             {characters ? (
-              <OtherDescription>
-                Characters:
-                {characters.items.length > 0
-                  ? characters.items.map((character, index, array) => (
-                      <OtherDescription key={index}>
-                        {` ${character.name}`}
-                        {index === array.length - 1 ? "." : ", "}
-                      </OtherDescription>
-                    ))
-                  : " No characters found."}
-              </OtherDescription>
+              <CharactersList characters={characters} />
             ) : (
               <Skeleton count={1} />
             )}
