@@ -16,3 +16,10 @@ export const Error = styled.div`
 `;
 
 export const Loading = styled(Error)``;
+
+export const ButtonContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+`;

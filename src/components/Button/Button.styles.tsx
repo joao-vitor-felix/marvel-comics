@@ -15,4 +15,8 @@ export const DefaultButton = styled.button`
   &:hover {
     background-color: #d43339;
   }
+
+  &:disabled {
+    background-color: grey;
+  }
 `;

@@ -1,11 +1,11 @@
 import { useQuery } from "@tanstack/react-query";
-import { fetchComics } from "../api/api";
+import { ComicData, fetchComics } from "../api/api";
 import { Comic } from "../types/Comic";
 
-const useComics = () => {
-  const { data, isFetching, isError } = useQuery<Comic[], Error>({
-    queryKey: ["comics"],
-    queryFn: fetchComics,
+const useComics = (offset: string) => {
+  const { data, isFetching, isError } = useQuery<ComicData, Error>({
+    queryKey: ["comics", offset],
+    queryFn: () => fetchComics(offset),
     refetchOnWindowFocus: false
   });
   return { data, isFetching, isError };

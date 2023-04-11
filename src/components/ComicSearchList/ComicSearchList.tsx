@@ -18,14 +18,12 @@ const ComicSearchList: FC<SearchListProps> = ({ comics, search }) => {
       {comics
         ?.filter((comics, idx) => idx < 5)
         .map(comic => (
-          <>
-            <ComicSearch
-              images={comic.images}
-              title={comic.title}
-              key={comic.id}
-              id={comic.id}
-            />
-          </>
+          <ComicSearch
+            images={comic.images}
+            title={comic.title}
+            key={comic.id}
+            id={comic.id}
+          />
         ))}
       {comics.length > 0 && (
         <SearchButton to={`search/${search}`}>See more...</SearchButton>

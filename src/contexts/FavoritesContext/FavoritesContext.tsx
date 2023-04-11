@@ -39,8 +39,6 @@ const FavoriteContextProvider = ({ children }: PropsWithChildren) => {
     }
   };
 
-  console.log(favorites);
-
   const value = { favorites, setFavorites, toggleFavorite };
 
   return (
