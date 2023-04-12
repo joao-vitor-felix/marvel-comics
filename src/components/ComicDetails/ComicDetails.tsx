@@ -54,7 +54,9 @@ const ComicDetails: FC<ComicDetailsProps> = ({
         )}
 
         <DetailContainer>
-          {title ? <Title>{title}</Title> : <Skeleton count={1} />}
+          {<Title>{title ? title : " No title found."}</Title> || (
+            <Skeleton count={1} />
+          )}
 
           {(
             <Description>
@@ -63,24 +65,21 @@ const ComicDetails: FC<ComicDetailsProps> = ({
             </Description>
           ) || <Skeleton count={3} />}
           <OtherDescriptionContainer>
-            {pageCount ? (
-              <OtherDescription>Page count: {pageCount}.</OtherDescription>
-            ) : (
+            {(
+              <OtherDescription>
+                Page count:
+                {pageCount ? ` ${pageCount}` : " No page count found."}.
+              </OtherDescription>
+            ) || <Skeleton count={1} />}
+            {(
+              <OtherDescription>
+                Format: {format ? ` ${format}` : " No format found."}.
+              </OtherDescription>
+            ) || <Skeleton count={1} />}
+            {(creators && <CreatorsList creators={creators} />) || (
               <Skeleton count={1} />
             )}
-            {format ? (
-              <OtherDescription>Format: {format}.</OtherDescription>
-            ) : (
-              <Skeleton count={1} />
-            )}
-            {creators ? (
-              <CreatorsList creators={creators} />
-            ) : (
-              <Skeleton count={1} />
-            )}
-            {characters ? (
-              <CharactersList characters={characters} />
-            ) : (
+            {(characters && <CharactersList characters={characters} />) || (
               <Skeleton count={1} />
             )}
           </OtherDescriptionContainer>
