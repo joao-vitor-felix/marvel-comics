@@ -3,7 +3,7 @@ import { Container } from "./Search.styles";
 import useComicsByName from "../../hooks/useComicsByName";
 import Comic from "../../components/Comic/Comic";
 import SkeletonCard from "../../components/SkeletonCard/SkeletonCard";
-import ButtonToTop from "../../components/ButtonToTop/ButtonTopTop";
+import ButtonToTop from "../../components/ButtonToTop/ButtonToTop";
 
 const Search = () => {
   const { title } = useParams();

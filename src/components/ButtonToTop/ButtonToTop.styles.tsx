@@ -4,6 +4,7 @@ import styled, { css } from "styled-components";
 type ButtonProps = {
   showButton: boolean;
 };
+
 export const Button = styled(FontAwesomeIcon)<ButtonProps>`
   position: fixed;
   bottom: 10%;

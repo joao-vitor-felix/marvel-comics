@@ -1,4 +1,4 @@
-import ButtonToTop from "../../components/ButtonToTop/ButtonTopTop";
+import ButtonToTop from "../../components/ButtonToTop/ButtonToTop";
 import Comic from "../../components/Comic/Comic";
 import SkeletonCard from "../../components/SkeletonCard/SkeletonCard";
 import useDocumentTitle from "../../hooks/useDocumentTitle";
