@@ -5,7 +5,6 @@ import {
   Search,
   Heart,
   Menu,
-  LoginButton,
   LogoContainer,
   Sidebar,
   Title,
@@ -22,6 +21,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import Searchbox from "../../components/Searchbox/Searchbox";
 import { useEffect, useRef, useState } from "react";
+import Button from "../../components/Button/Button";
 
 const Navbar = () => {
   const [navbarColor, setNavbarColor] = useState(false);
@@ -72,13 +72,11 @@ const Navbar = () => {
             icon={faTimes}
             onClick={() => setShowSideBar(!showSideBar)}
           />
-          <LoginButton onClick={() => navigate("favorites")}>
-            Favorites
-          </LoginButton>
-          <LoginButton onClick={() => navigate("login")}>Login</LoginButton>
+          <Button onClick={() => navigate("/")}>Home</Button>
+          <Button onClick={() => navigate("favorites")}>Favorites</Button>
         </Sidebar>
         <Menu icon={faBars} onClick={() => setShowSideBar(!showSideBar)} />
-        <LogoContainer to="/">
+        <LogoContainer to="/" aria-label="Home">
           <Logo src={`${Marvel}`} />
         </LogoContainer>
         <InputContainer>
@@ -88,10 +86,9 @@ const Navbar = () => {
           <Searchbox id="search" />
         </InputContainer>
         <FavLoginContainer>
-          <NavLink to="favorites">
+          <NavLink to="favorites" aria-label="Favoritos">
             <Heart icon={faHeart} />
           </NavLink>
-          <LoginButton onClick={() => navigate("login")}>Login</LoginButton>
         </FavLoginContainer>
       </Nav>
       <Outlet />

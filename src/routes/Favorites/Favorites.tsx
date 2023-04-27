@@ -10,7 +10,7 @@ const Favorites = () => {
   const { favorites } = useFavoriteContext();
   return (
     <>
-      <Title>Your Favorite Comics</Title>
+      <Title>Your Favorites Comics</Title>
       <Container>
         {favorites?.map(comic => (
           <Comic

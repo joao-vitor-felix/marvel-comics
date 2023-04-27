@@ -1,6 +1,5 @@
 import styled, { css } from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import Button from "../../components/Button/Button";
 import { NavLink } from "react-router-dom";
 
 type NavProps = {
@@ -126,5 +125,3 @@ export const Search = styled(FontAwesomeIcon)`
 export const Heart = styled(Search)`
   cursor: pointer;
 `;
-
-export const LoginButton = styled(Button)``;
