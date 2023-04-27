@@ -1,33 +1,34 @@
 import { GlobalStyle } from "./GlobalStyles";
 import { Route, Routes } from "react-router-dom";
-import { Theme } from "./Theme";
-import Navbar from "./routes/Navbar/Navbar";
-import Home from "./routes/Home/Home";
-import Details from "./routes/Details/Details";
-import Favorites from "./routes/Favorites/Favorites";
 import FavoriteContextProvider from "./contexts/FavoritesContext/FavoritesContext";
 import { SkeletonTheme } from "react-loading-skeleton";
-import Search from "./routes/Search/Search";
+import { Suspense, lazy } from "react";
+
 import ScrollToTop from "./components/ScrollToTop/ScrollToTop";
-import Login from "./routes/Login/Login";
+import Spinner from "./components/Spinner/Spinner";
+
+const Navbar = lazy(() => import("./routes/Navbar/Navbar"));
+const Home = lazy(() => import("./routes/Home/Home"));
+const Details = lazy(() => import("./routes/Details/Details"));
+const Favorites = lazy(() => import("./routes/Favorites/Favorites"));
+const Search = lazy(() => import("./routes/Search/Search"));
 
 const App = () => {
   return (
     <SkeletonTheme baseColor="#313131" highlightColor="#525252">
       <FavoriteContextProvider>
-        <Theme>
-          <GlobalStyle />
-          <ScrollToTop />
+        <GlobalStyle />
+        <ScrollToTop />
+        <Suspense fallback={<Spinner />}>
           <Routes>
             <Route path="/" element={<Navbar />}>
               <Route index element={<Home />} />
               <Route path="details/:id" element={<Details />} />
               <Route path="search/:title" element={<Search />} />
               <Route path="favorites" element={<Favorites />} />
-              <Route path="login" element={<Login />} />
             </Route>
           </Routes>
-        </Theme>
+        </Suspense>
       </FavoriteContextProvider>
     </SkeletonTheme>
   );
