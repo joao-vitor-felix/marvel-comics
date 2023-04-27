@@ -12,7 +12,7 @@ export const Container = styled.div`
 export const Error = styled.div`
   text-align: center;
   color: white;
-  font-size: 24px;
+  font-size: 28px;
 `;
 
 export const Loading = styled(Error)``;
@@ -22,4 +22,5 @@ export const ButtonContainer = styled.div`
   justify-content: center;
   align-items: center;
   gap: 15px;
+  padding-bottom: 22px;
 `;

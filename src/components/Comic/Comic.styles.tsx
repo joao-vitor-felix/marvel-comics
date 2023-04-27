@@ -31,7 +31,8 @@ export const Heart = styled(FontAwesomeIcon)`
   position: absolute;
   top: calc(300px - 45px);
   right: 15px;
-  z-index: 5;
+  z-index: 2;
+  cursor: pointer;
 `;
 
 export const RedHeart = styled(Heart)`

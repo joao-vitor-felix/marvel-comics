@@ -18,5 +18,6 @@ export const DefaultButton = styled.button`
 
   &:disabled {
     background-color: grey;
+    cursor: not-allowed;
   }
 `;
