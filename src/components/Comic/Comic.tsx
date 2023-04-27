@@ -27,9 +27,17 @@ const Comic: FC<ComicProps> = ({ title, images, id, favorite }) => {
       />
       <Title to={`/details/${id}`}>{title}</Title>
       {isFavorite ? (
-        <RedHeart onClick={() => toggleFavorite(favorite)} icon={faHeart} />
+        <RedHeart
+          onClick={() => toggleFavorite(favorite)}
+          icon={faHeart}
+          aria-label={`Desfavoritar ${title}`}
+        />
       ) : (
-        <Heart onClick={() => toggleFavorite(favorite)} icon={faHeart} />
+        <Heart
+          onClick={() => toggleFavorite(favorite)}
+          icon={faHeart}
+          aria-label={`Favoritar ${title}`}
+        />
       )}
     </Container>
   );
