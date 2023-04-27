@@ -2,7 +2,7 @@
 
 <h1>
   <img 
-    src="https://imgur.com/lUf5Pko.gif"
+    src="https://imgur.com/HisOiNU.gif"
   />
 </h1>
 
